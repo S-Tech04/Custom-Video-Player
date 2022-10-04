@@ -1,86 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <title>Video Player</title>
-    <!-- S-Tech04 -->
-    <!-- www.youtube.com/c/STech04 -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Video Player</title>
+  <!-- S-Tech04 -->
+  <!-- www.youtube.com/c/STech04 -->
 </head>
 <body>
-    <section>
-        <div class="container">
-            <div id="video_player">
-                <video src="https://saiflagharilms.000webhostapp.com/media/Creative%20Our%20Team%20Section%20Using%20HTML%20&%20CSS%20Neumorphism.mp4" id="main-video"></video>
-                <div class="progressAreaTime">0:00</div>
-                <div class="controls">
-                    <div class="progress-area">
-                        <div class="progress-bar">
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="controls-list">
-                        <div class="controls-left">
-                            <span class="icon">
-                                <i class="material-icons fast-rewind">replay_10</i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons play_pause">play_arrow</i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons fast-forward">forward_10</i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons volume">volume_up</i>
-                                <input type="range" min="0" max="100" class="volume_range">
-                            </span>
-                            <div class="timer">
-                                <span class="current">0:00</span> / <span class="duration">0:00</span>
-                            </div>
-                        </div>
-                        <div class="controls-right">
-                            <span class="icon">
-                                <i class="material-icons auto-play"></i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons settingsBtn">settings</i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons picture_in_picutre">picture_in_picture_alt</i>
-                            </span>
-                            <span class="icon">
-                                <i class="material-icons fullscreen">fullscreen</i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div id="settings">
-                    <div class="playback">
-                        <span>Playback Speed</span>
-                        <ul>
-                            <li data-speed="0.25">0.25</li>
-                            <li data-speed="0.5">0.5</li>
-                            <li data-speed="0.75">0.75</li>
-                            <li data-speed="1"  class="active">Normal</li>
-                            <li data-speed="1.25">1.25</li>
-                            <li data-speed="1.5">1.5</li>
-                            <li data-speed="1.75">1.75</li>
-                            <li data-speed="2">2</li>
-                        </ul>
-                    </div>
-                </div>
+  <section>
+    <div class="container">
+      <div id="video_player">
+        <div class="loader"></div>
+        <video preload="metadata" id="main-video">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" size="576" type="video/mp4">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" size="720" type="video/mp4">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080.mp4" size="1080" type="video/mp4">
+          <track label="fr" kind="Français" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt" srclang="en">
+        </video>
+        <p class="caption_text"></p>
+        <div class="progressAreaTime" >0:00</div>
+        
+        <div class="controls">
+          <div class="progress-area">
+            <canvas class="bufferedBar"></canvas>
+            <div class="progress-bar">
+              <span></span>
+            </div>
+          </div>
+
+          <div class="controls-list">
+            <div class="controls-left">
+              <span class="icon">
+                <i class="material-icons fast-rewind">replay_10</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons play_pause" >play_arrow</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons fast-forward">forward_10</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons volume">volume_up</i>
+                <input type="range" min="0" max="100" class="volume_range" />
+              </span>
+
+              <div class="timer">
+                <span class="current">0:00</span> /
+                <span class="duration">0:00</span>
+              </div>
             </div>
 
+            <div class="controls-right">
+              <span class="icon">
+                <i class="material-icons auto-play"></i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons captionsBtn">closed_caption</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons settingsBtn">settings</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons picture_in_picutre">picture_in_picture_alt</i>
+              </span>
+
+              <span class="icon">
+                <i class="material-icons fullscreen">fullscreen</i>
+              </span>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <footer>
-        <span>Copyright &copy; 2021 <a href="www.youtube.com/c/STech04">S-Tech04</a> | All rights reserved</span>
-    </footer>
+        <div id="settings">
+          <div data-label="settingHome">
+            <ul>
+              <li data-label="speed">
+                <span> Speed </span>
+                <span class="material-symbols-outlined icon">
+                  arrow_forward_ios
+                </span>
+              </li>
+              <li data-label="quality">
+                <span> Quality </span>
+               <span class="material-symbols-outlined icon">
+                arrow_forward_ios
+              </span>
+              </li>
+            </ul>
+          </div>
+          <div class="playback" data-label="speed" hidden>
+            <span>
+              <i class="material-symbols-outlined icon back_arrow"  data-label="settingHome">
+                arrow_back
+              </i>
+              <span>Playback Speed </span>
+            </span>
+            <ul>
+              <li data-speed="0.25">0.25</li>
 
-    <script src="./script.js"></script>
+              <li data-speed="0.5">0.5</li>
+
+              <li data-speed="0.75">0.75</li>
+
+              <li data-speed="1" class="active">Normal</li>
+
+              <li data-speed="1.25">1.25</li>
+
+              <li data-speed="1.5">1.5</li>
+
+              <li data-speed="1.75">1.75</li>
+
+              <li data-speed="2">2</li>
+            </ul>
+          </div>
+          <div data-label="quality" hidden>
+            <span>
+              <i class="material-symbols-outlined icon back_arrow" data-label="settingHome">
+                arrow_back
+              </i>
+              <span>Playback Quality </span>
+            </span>
+            <ul>
+              <li data-quality="auto" class="active">auto</li>
+            </ul>
+          </div>
+        </div>
+        <div id="captions">
+          <div class="caption">
+            <span>Select Subtitle</span>
+            <ul>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <footer>
+    <span>Copyright &COPY; 2022
+      <a href="www.youtube.com/c/STech04">S-Tech04</a> | All rights
+      reserved</span>
+  </footer>
+  <script src="./script.js"></script>
 </body>
+
 </html>
