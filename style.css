@@ -59,17 +59,20 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 /* Video player Styling */
-.container #video_player {
+.container .video_player {
   position: relative;
   width: 700px;
   height: 100%;
   background: #000;
   overflow: hidden;
+
 }
-.container #video_player .loader{
+.container .video_player .loader{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -91,7 +94,7 @@ section {
     transform: translate(-50%,-50%) rotate(360deg);
   }
 }
-.container #video_player .thumbnail{
+.container .video_player .thumbnail{
   position: absolute;
   bottom: 80px;
   left: calc(var(--x) + 11px);
@@ -103,14 +106,14 @@ section {
   border-radius: 3px;
   display: none;
 }
-.container #video_player #main-video {
+.container .video_player .main-video {
   position: relative;
   width: 100%;
   height: 100%;
   outline: none;
 }
 
-#video_player .progressAreaTime {
+.video_player .progressAreaTime {
   position: absolute;
   left: calc(var(--x) + 11px);
   transform: translateX(-50%);
@@ -126,7 +129,7 @@ section {
   display: none;
 }
 
-.container #video_player .controls {
+.container .video_player .controls {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -140,11 +143,11 @@ section {
   padding: 0px 10px;
 }
 
-.container #video_player .controls.active {
+.container .video_player .controls.active {
   transform: translateY(0);
 }
 
-#video_player .controls .progress-area {
+.video_player .controls .progress-area {
   width: 100%;
   height: 5px;
   margin: auto;
@@ -315,8 +318,8 @@ section {
   transform: rotate(45deg);
 }
  
-#video_player #captions,
-#video_player #settings {
+.video_player .captions,
+.video_player .settings {
   position: absolute;
   right: 25px;
   bottom: 62px;
@@ -331,13 +334,13 @@ section {
   border-radius: 5px;
 }
  
-#video_player #captions.active,
-#video_player #settings.active {
+.video_player .captions.active,
+.video_player .settings.active {
   display: block;
 }
  
-#video_player #captions .caption span,
-#video_player #settings > div > span {
+.video_player .captions .caption span,
+.video_player .settings > div > span {
   font-size: 14px;
   font-weight: 300;
   padding: 15px 30px;
@@ -347,22 +350,22 @@ section {
   align-items: center;
   white-space: nowrap;
 }
-#video_player #settings > div .icon{
+.video_player .settings > div .icon{
   font-size: 14px;
   margin: 0 5px;
   cursor: pointer;
 }
-#video_player #settings > div ul li span{
+.video_player .settings > div ul li span{
  pointer-events: none;
 }
 
-#video_player #captions .caption ul,
-#video_player #settings > div ul {
+.video_player .captions .caption ul,
+.video_player .settings > div ul {
   position: relative;
 }
 
-#video_player #captions .caption ul li,
-#video_player #settings > div ul li {
+.video_player .captions .caption ul li,
+.video_player .settings > div ul li {
   position: relative;
   width: 100%;
   cursor: pointer;
@@ -374,13 +377,13 @@ section {
   font-size: 14px;
 }
 
- #video_player #captions .caption ul li:hover,
- #video_player #settings > div ul li:hover {
+ .video_player .captions .caption ul li:hover,
+ .video_player .settings > div ul li:hover {
   background: rgba(28, 28, 28, 0.9);
 }
 
-#video_player #captions .caption ul li.active::before,
-#video_player #settings > div ul li.active::before {
+.video_player .captions .caption ul li.active::before,
+.video_player .settings > div ul li.active::before {
   content: "\e876";
   font-family: "Material Icons";
   position: absolute;
@@ -391,14 +394,14 @@ section {
   font-size: 18px;
 }
 
-#video_player #captions::-webkit-scrollbar,
-#video_player #settings::-webkit-scrollbar {
+.video_player .captions::-webkit-scrollbar,
+.video_player .settings::-webkit-scrollbar {
   width: 8px;
   background: transparent;
 }
 
-#video_player #captions::-webkit-scrollbar-thumb,
-#video_player #settings::-webkit-scrollbar-thumb {
+.video_player .captions::-webkit-scrollbar-thumb,
+.video_player .settings::-webkit-scrollbar-thumb {
   height: 20px;
   border: 2px solid transparent;
   background: rgba(83, 83, 83, 0.9);
