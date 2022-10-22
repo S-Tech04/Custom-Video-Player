@@ -172,18 +172,18 @@ video_players.forEach(video_player => {
 
   // Play video function
   function playVideo() {
-    mainVideo.play();
     play_pause.innerHTML = "pause";
     play_pause.title = "pause";
     video_player.classList.add("paused");
   }
-
+  
   // Pause video function
+  mainVideo.play();
   function pauseVideo() {
-    mainVideo.pause();
     play_pause.innerHTML = "play_arrow";
     play_pause.title = "play";
     video_player.classList.remove("paused");
+    mainVideo.pause();
   }
 
   play_pause.addEventListener("click", () => {
